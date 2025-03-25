@@ -10,7 +10,7 @@ function getMenu(){
 function addItemToMenu(item){
     const menu = getMenu();
     
-    const exist = menu.some(d => d.name.toLowerCase !== item.name.toLowerCase());
+    const exist = menu.some(d => d.name.toLowerCase() === item.name.toLowerCase());
     if(exist){
         throw new Error('Item already exists in the menu!');
     }

@@ -2,5 +2,9 @@
   {
     "name": "Pizza",
     "calories": "250"
+  },
+  {
+    "name": "Shnitzel",
+    "calories": "350"
   }
 ]
