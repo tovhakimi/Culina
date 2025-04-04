@@ -1,31 +1,27 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import { addItemToMenu } from '../../backend/src/controllers/menuController'
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom';
+import Home from './pages/Home';
+import PersonalMenu from './pages/PersonalMenu';
+import SpooncularMenu from './pages/SpooncularMenu';
+import './App.css';
 
 function App() {
   return (
-    <>
+    <Router>
       <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        <nav>
+          <Link to="/">Home</Link>
+          <Link to="/personal-menu">PersonalMenu</Link>
+          <Link to="/spooncular-menu">Spooncular Menu</Link>
+        </nav>
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/personal-menu' element={<PersonalMenu />} />
+        <Route path='/spooncular-menu' element={<SpooncularMenu />} />
+      </Routes>
       </div>
-      <h1>Vite + React</h1>
-      <div className="addButton">
-        <button onClick={() => addItem((item) => addItemToMenu(item))}>
-          Add Item to the Personal Menu
-        </button>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </Router>
+  );
 }
 
-export default App
+export default App;
